@@ -1,0 +1,28 @@
+{
+  "name": "mqtt-declarative-e2e-test",
+  "version": "0.0.3",
+  "description": "Tests generator for MQTT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getlarge/mqtt-declarative-e2e-test.git"
+  },
+  "author": "Edouard Maleix <ed@getlarge.eu> (https://getlarge.eu)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/getlarge/mqtt-declarative-e2e-test/issues"
+  },
+  "homepage": "https://github.com/getlarge/mqtt-declarative-e2e-test#readme",
+  "keywords": [
+    "mqtt",
+    "e2e tests",
+    "mocha"
+  ],
+  "dependencies": {
+    "declarative-test-structure-generator": "^0.2.3",
+    "mqtt": "^4.0.1"
+  }
+}
