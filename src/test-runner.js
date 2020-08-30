@@ -2,21 +2,24 @@ const TestGen = require('declarative-test-structure-generator');
 const Client = require('./client');
 
 class TestRunner {
-  static run(config, testSuiteDefinition) {
+  static run(config, testSuiteDefinition, frameworkApi) {
     if (testSuiteDefinition === undefined) {
       console.log('Running with default config');
       config = {};
       testSuiteDefinition = arguments[1];
     }
 
-    testSuiteDefinition = TestRunner.generateTestSuiteDefinition(testSuiteDefinition, config);
+    testSuiteDefinition = TestRunner.generateTestSuiteDefinition(
+      testSuiteDefinition,
+      config
+    );
 
-    TestGen.run(testSuiteDefinition);
+    TestGen.run(testSuiteDefinition, { api: frameworkApi });
   }
 
   static generateTestSuiteDefinition(def = {}, config = {}) {
     if (Array.isArray(def)) {
-      return def.map(t => TestRunner.generateTestDefinition(t, config));
+      return def.map((t) => TestRunner.generateTestDefinition(t, config));
     }
 
     return Object.keys(def).reduce((res, key) => {
@@ -27,7 +30,10 @@ class TestRunner {
 
       res[key] = {
         ...testSuiteDef,
-        tests: TestRunner.generateTestSuiteDefinition(testSuiteDef.tests, config),
+        tests: TestRunner.generateTestSuiteDefinition(
+          testSuiteDef.tests,
+          config
+        ),
       };
       return res;
     }, {});
@@ -52,4 +58,4 @@ class TestRunner {
   }
 }
 
-module.exports = TestRunner
+module.exports = TestRunner;

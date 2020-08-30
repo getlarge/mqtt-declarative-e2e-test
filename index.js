@@ -1,5 +1,8 @@
-const TestRunner = require("./src/test-runner");
+const { api } = require('declarative-test-structure-generator');
+const TestRunner = require('./src/test-runner');
 
-module.exports = (config, testSuiteDefinition) => {
-  TestRunner.run(config, testSuiteDefinition);
+module.exports = {
+  run: (config, testSuiteDefinition, frameworkApi) =>
+    TestRunner.run(config, testSuiteDefinition, frameworkApi),
+  api,
 };

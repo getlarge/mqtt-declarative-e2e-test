@@ -22,7 +22,7 @@
     "mocha"
   ],
   "dependencies": {
-    "declarative-test-structure-generator": "^0.2.3",
-    "mqtt": "^4.0.1"
+    "declarative-test-structure-generator": "^1.1.1",
+    "mqtt": "^4.2.1"
   }
 }
